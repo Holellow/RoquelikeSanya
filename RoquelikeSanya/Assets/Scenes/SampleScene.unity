@@ -491,12 +491,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v2Direction: {x: 0, y: 0}
+  jumpGravity: 0
   speed: 3
   jumpHeight: 5
-  jumpGravity: 0.2
-  groundRemembererTime: 0.6
+  jumpPressedTime: 0
+  jumpRememberer: 0
   groundRememberer: 0
-  jumps: 1
+  groundRemembererTime: 0
   direction: 1
   isGrounded: 0
   isFacingRight: 1
@@ -504,9 +505,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  groundCheckRadius: 0.2
-  realJumps: 0
-  isActive: 1
+  groundCheckRadius: 0
+  _rigidbody: {fileID: 0}
+  _jumpedOnce: 0
+  jumps: 1
+  realJumps: 1
 --- !u!212 &557576580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1276,7 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v2Direction: {x: 0, y: 0}
-  jumpGravity: 0.1
+  jumpGravity: 0
   speed: 3
   jumpHeight: 5
   jumpPressedTime: 0.2
@@ -1290,8 +1293,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  groundCheckRadius: 0.2
-  isActive: 0
+  groundCheckRadius: 0
+  _rigidbody: {fileID: 0}
+  _jumpedOnce: 0
 --- !u!212 &1995864238
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1372,7 +1376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   distance: 0.53
 --- !u!1 &2067850780
 GameObject:
