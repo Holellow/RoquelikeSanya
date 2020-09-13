@@ -58,11 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Box.cs" />
      <Compile Include="Assets\Button.cs" />
      <Compile Include="Assets\PlayerSwitcher.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\FirstPlayerController.cs" />
      <Compile Include="Assets\Scripts\IActiveObject.cs" />
+     <Compile Include="Assets\Scripts\PushBox.cs" />
      <Compile Include="Assets\Scripts\SecondPlayerController.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>I:/RoquelikeSanya/RoquelikeSanya/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
