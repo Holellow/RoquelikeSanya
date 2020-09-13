@@ -2,15 +2,20 @@
 
 public class PlayerSwitcher : MonoBehaviour
 {
-    [SerializeField] private FirstPlayerController FirstPlayer;
-    [SerializeField] private SecondPlayerController SecondPlayer;
+    [SerializeField] private PlayerUnit FirstPlayer;
+    [SerializeField] private PlayerUnit SecondPlayer;
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.J))
         {
-            FirstPlayer.isActive = !FirstPlayer.isActive;
+
             SecondPlayer.isActive = !SecondPlayer.isActive;
+            SecondPlayer.GetComponent<JumpScript>().enabled = !SecondPlayer.GetComponent<JumpScript>().enabled;
+            
+            
+            FirstPlayer.GetComponent<JumpScript>().enabled = !FirstPlayer.GetComponent<JumpScript>().enabled;
+            FirstPlayer.isActive = !FirstPlayer.isActive;
         }
     }
 }

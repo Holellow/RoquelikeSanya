@@ -14,6 +14,8 @@
           <e p="Door.cs" t="Include" />
           <e p="FirstPlayerController.cs" t="Include" />
           <e p="IActiveObject.cs" t="Include" />
+          <e p="IsGrounded.cs" t="Include" />
+          <e p="JumpScript.cs" t="Include" />
           <e p="PlayerUnit.cs" t="Include" />
           <e p="PushBox.cs" t="Include" />
           <e p="SecondPlayerController.cs" t="Include" />

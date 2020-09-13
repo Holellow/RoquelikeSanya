@@ -38,7 +38,7 @@ public abstract class PlayerUnit : MonoBehaviour
     
     private protected void FixedUpdate()
     {
-        Grounded();
+       
     }
     
     void Update()
@@ -47,13 +47,15 @@ public abstract class PlayerUnit : MonoBehaviour
         {
             CheckInput();
             CheckMovementDirection();
+            Grounded();     
         }
     }
 
-    private protected virtual void CheckInput()
+     protected virtual void CheckInput()
     {
         
     }
+     
     private void CheckMovementDirection()
     {
         if(isFacingRight && direction < 0)
@@ -65,33 +67,28 @@ public abstract class PlayerUnit : MonoBehaviour
             Flip();
         }
     }
-    public void Flip()
+
+    private void Flip()
     {
         direction *= -1;
         isFacingRight = !isFacingRight;
         transform.Rotate(0.0f, 180.0f, 0.0f);
     }
     
-    public void Jump()
-    {
-        _rigidbody.velocity = Vector2.up * jumpHeight;
-    }
-    
-    public void Run()
+    protected void Run()
     {
         v2Direction.x = direction;
         _rigidbody.position = Vector3.MoveTowards(_rigidbody.position, _rigidbody.position + v2Direction, speed * Time.deltaTime);
             
     }
-    
-    public void Grounded()
+
+    private void Grounded()
     {
        
         isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius,whatIsGround);
         if (isGrounded)
         {
             groundRememberer = groundRemembererTime;
-            _jumpedOnce = false;
         }
         else
         {

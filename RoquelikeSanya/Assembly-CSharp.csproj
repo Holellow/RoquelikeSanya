@@ -64,6 +64,8 @@
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\FirstPlayerController.cs" />
      <Compile Include="Assets\Scripts\IActiveObject.cs" />
+     <Compile Include="Assets\Scripts\IsGrounded.cs" />
+     <Compile Include="Assets\Scripts\JumpScript.cs" />
      <Compile Include="Assets\Scripts\PlayerUnit.cs" />
      <Compile Include="Assets\Scripts\PushBox.cs" />
      <Compile Include="Assets\Scripts\SecondPlayerController.cs" />
