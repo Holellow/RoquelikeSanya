@@ -60,15 +60,16 @@
   <ItemGroup>
      <Compile Include="Assets\Box.cs" />
      <Compile Include="Assets\Button.cs" />
+     <Compile Include="Assets\MovingPlatform.cs" />
      <Compile Include="Assets\PlayerSwitcher.cs" />
-     <Compile Include="Assets\Scripts\Door.cs" />
-     <Compile Include="Assets\Scripts\FirstPlayerController.cs" />
-     <Compile Include="Assets\Scripts\IActiveObject.cs" />
-     <Compile Include="Assets\Scripts\IsGrounded.cs" />
-     <Compile Include="Assets\Scripts\JumpScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerUnit.cs" />
-     <Compile Include="Assets\Scripts\PushBox.cs" />
-     <Compile Include="Assets\Scripts\SecondPlayerController.cs" />
+     <Compile Include="Assets\Scripts\ActivateObjects\Door.cs" />
+     <Compile Include="Assets\Scripts\ActivateObjects\IActiveObject.cs" />
+     <Compile Include="Assets\Scripts\Player\FirstPlayerController.cs" />
+     <Compile Include="Assets\Scripts\Player\IsGrounded.cs" />
+     <Compile Include="Assets\Scripts\Player\JumpScript.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerUnit.cs" />
+     <Compile Include="Assets\Scripts\Player\PushBox.cs" />
+     <Compile Include="Assets\Scripts\Player\SecondPlayerController.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>I:/RoquelikeSanya/RoquelikeSanya/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
