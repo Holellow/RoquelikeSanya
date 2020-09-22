@@ -1,17 +1,28 @@
 ﻿using UnityEngine;
 
-public class Door : MonoBehaviour, IActive
+namespace ActivateObjects
 {
-    private Animator _animator;
-
-    private void Start()
+    public class Door : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-    }
+        private Animator _animator;
 
-    public void Active()
-    {
-        GetComponent<EdgeCollider2D>().enabled = false;
-        _animator.SetBool("isOpen",true);
+        private static readonly int IsOpen = Animator.StringToHash("isOpen");
+
+        private void Start()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+        public void Active()
+        {
+            GetComponent<EdgeCollider2D>().enabled = false;
+            _animator.SetBool(IsOpen,true);
+        }
+
+        public void Disactivate()
+        { 
+            GetComponent<EdgeCollider2D>().enabled = true;
+            _animator.SetBool(IsOpen,false);
+        }
     }
 }

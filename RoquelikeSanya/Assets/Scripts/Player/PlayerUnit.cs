@@ -1,30 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PlayerUnit : MonoBehaviour
 {
-    [SerializeField] protected Vector2 v2Direction;
+    [SerializeField] protected Vector3 v3Direction;
     
-    [SerializeField] protected float jumpGravity;
     [SerializeField] protected float speed = 3.0f;
-    [SerializeField] protected float jumpHeight = 15.0f;
-    [SerializeField] protected float jumpPressedTime;
-    [SerializeField] protected float jumpRememberer;
-    [SerializeField] protected float groundRememberer;
-    [SerializeField] protected float groundRemembererTime;
-    
     [SerializeField] protected float direction = 1;
     
-    [SerializeField] protected bool isGrounded;
     [SerializeField] protected bool isFacingRight = true;
     
-    [SerializeField] protected Transform groundCheck;
-    
-    [SerializeField] protected LayerMask whatIsGround;
-
-    [SerializeField] protected float groundCheckRadius;
-
     public bool isActive { set; get; }
         
     [SerializeField] protected Rigidbody2D _rigidbody;
@@ -36,18 +23,12 @@ public abstract class PlayerUnit : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
     
-    private protected void FixedUpdate()
-    {
-       
-    }
-    
     void Update()
     {
         if (isActive)
         {
             CheckInput();
             CheckMovementDirection();
-            Grounded();     
         }
     }
 
@@ -77,23 +58,37 @@ public abstract class PlayerUnit : MonoBehaviour
     
     protected void Run()
     {
-        v2Direction.x = direction;
-        _rigidbody.position = Vector3.MoveTowards(_rigidbody.position, _rigidbody.position + v2Direction, speed * Time.deltaTime);
-            
+        var transform1 = transform;
+        var localPosition = transform1.localPosition;
+        
+        v3Direction.x = direction;
+        
+        transform.localPosition = Vector2.MoveTowards(localPosition, 
+            localPosition + v3Direction,
+            Time.deltaTime * speed);
     }
-
-    private void Grounded()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-       
-        isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius,whatIsGround);
-        if (isGrounded)
+        if (collision.gameObject.name == "Platform")
         {
-            groundRememberer = groundRemembererTime;
+            collision.collider.transform.SetParent(transform);
+            
+            if (collision.gameObject != collision.collider.gameObject.transform)
+            {
+                Console.WriteLine("true");
+            }
+            else
+            {
+                Console.WriteLine("false");
+            }
         }
-        else
+    }
+    
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Platform")
         {
-            groundRememberer -= Time.deltaTime;
+            transform.parent = null;
         }
-           
     }
 }

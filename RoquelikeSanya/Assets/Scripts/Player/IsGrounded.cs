@@ -1,36 +1,34 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class IsGrounded : MonoBehaviour
+namespace Player
 {
-    [SerializeField] protected float groundRememberer;       
-    [SerializeField] protected float groundRemembererTime;   
-    [SerializeField] protected LayerMask whatIsGround;   
-                                                     
-    [SerializeField] protected float groundCheckRadius;  
-    public bool isGrounded { get; set; }
-    
-    [SerializeField] protected Transform groundCheck;
-
-    public void Update()
+    public class IsGrounded : MonoBehaviour
     {
-        Grounded();
-    }
+        [SerializeField] protected float groundRememberer;       
+        [SerializeField] protected float groundRemembererTime;   
+        [SerializeField] protected LayerMask whatIsGround;   
+                                                     
+        [SerializeField] protected float groundCheckRadius;  
+        public bool isGrounded { get; set; }
+    
+        [SerializeField] protected Transform groundCheck;
 
-    private void Grounded()                                                                                  
-    {                                                                                                        
-                                                                                                           
-        isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius,whatIsGround);
-        if (isGrounded)                                                                                      
-        {                                                                                                    
-            groundRememberer = groundRemembererTime;                                                         
-        }                                                                                                    
-        else                                                                                                 
-        {                                                                                                    
-            groundRememberer -= Time.deltaTime;                                                              
-        }                                                                                                    
-                                                                                                           
-    }                                                                                                        
+        public void Update()
+        {
+            Grounded();
+        }
+
+        private void Grounded()                                                                                  
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius,whatIsGround);
+            if (isGrounded)                                                                                      
+            {                                                                                                    
+                groundRememberer = groundRemembererTime;                                                         
+            }                                                                                                    
+            else                                                                                                 
+            {                                                                                                    
+                groundRememberer -= Time.deltaTime;                                                              
+            }
+        }                                                                                                        
+    }
 }

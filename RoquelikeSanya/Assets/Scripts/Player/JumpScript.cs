@@ -1,20 +1,19 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 
 public class JumpScript : MonoBehaviour
 {
-    [SerializeField] private IsGrounded _isGrounded;
+    [SerializeField] private IsGrounded isGrounded;
     
     [SerializeField] private int realJumps;
     [SerializeField] private float jumpHeight;
 
     [SerializeField] private int jumps;
     
-    private float direction = 1;
-   
     private Rigidbody2D _rigidbody2D;
     
-    private bool jumpedOnce;
-    private bool startJump;
+    private bool _jumpedOnce;
+    private bool _startJump;
         
     private void Awake()
     {
@@ -28,20 +27,20 @@ public class JumpScript : MonoBehaviour
 
     private void Jump()                             
     {                                                 
-        jumpedOnce = true;
+        _jumpedOnce = true;
         _rigidbody2D.velocity = Vector2.up * jumpHeight;
     }
 
     private void Update()
     {
-        if (!_isGrounded.isGrounded && startJump)
+        if (!isGrounded.isGrounded && _startJump)
         {
-            startJump = false;
+            _startJump = false;
         }
         
-        if (_isGrounded.isGrounded && jumps == 0 && jumpedOnce && !startJump)
+        if (isGrounded.isGrounded && jumps == 0 && _jumpedOnce && !_startJump)
         {
-            jumpedOnce = false;
+            _jumpedOnce = false;
             jumps = realJumps;
         }
         
@@ -49,7 +48,7 @@ public class JumpScript : MonoBehaviour
         {
             if (jumps > 0)
             {
-                startJump = true;
+                _startJump = true;
                 Jump();
                 jumps--;
             }
