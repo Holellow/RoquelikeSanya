@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerUnit.cs" />
      <Compile Include="Assets\Scripts\Player\PushBox.cs" />
      <Compile Include="Assets\Scripts\Player\SecondPlayerController.cs" />
+     <Compile Include="Assets\StickyGround.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>H:/RoquelikeSanya/RoquelikeSanya/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

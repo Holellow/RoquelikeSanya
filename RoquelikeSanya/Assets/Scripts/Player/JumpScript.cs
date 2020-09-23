@@ -28,6 +28,7 @@ public class JumpScript : MonoBehaviour
     private void Jump()                             
     {                                                 
         _jumpedOnce = true;
+        _rigidbody2D.velocity = Vector3.zero;
         _rigidbody2D.AddForce( new Vector2(0,jumpHeight)) ;
     }
 

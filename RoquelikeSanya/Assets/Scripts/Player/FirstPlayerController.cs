@@ -1,4 +1,5 @@
 ﻿using System;
+using Player;
 using UnityEngine;
 
 public class FirstPlayerController : PlayerUnit
@@ -16,6 +17,5 @@ public class FirstPlayerController : PlayerUnit
         {
             Run();
         }
-        
     }
 }

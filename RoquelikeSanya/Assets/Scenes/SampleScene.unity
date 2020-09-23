@@ -503,12 +503,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed68255193db88f4e9c8507cda5ac937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3Direction: {x: 0, y: 0, z: 0}
   speed: 900
+  maxVelocity: 7
   direction: 1
   isFacingRight: 1
   _rigidbody: {fileID: 557576578}
-  _jumpedOnce: 0
 --- !u!212 &557576580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1220,36 +1219,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcd86f8b13778445b3b6367f8edb350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1182837030
+--- !u!1 &1182837030 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8654762237448750393, guid: de53b145c33e99d458f1ab21d4bb66d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8654762236400217119}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1182837031}
-  m_Layer: 0
-  m_Name: StickyGround
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1182837031
+--- !u!4 &1182837031 stripped
 Transform:
+  m_CorrespondingSourceObject: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8654762236400217119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182837032
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182837030}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1723242465}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7f678468ed6c24f98dd9a0503f5a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1182837034
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182837030}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1.25}
+    newSize: {x: 0.16, y: 0.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.25}
+  m_EdgeRadius: 0
 --- !u!1 &1636991500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,12 +1511,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e982f8e6effa9a469209d27cd470a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3Direction: {x: 0, y: 0, z: 0}
   speed: 500
+  maxVelocity: 7
   direction: 1
   isFacingRight: 1
   _rigidbody: {fileID: 0}
-  _jumpedOnce: 0
 --- !u!212 &1995864238
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2285,3 +2303,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4396712f2bb2e541b0a0adb89d82ac7, type: 3}
+--- !u!1001 &8654762236400217119
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1723242465}
+    m_Modifications:
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750392, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750393, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_Name
+      value: StickyGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654762237448750393, guid: de53b145c33e99d458f1ab21d4bb66d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de53b145c33e99d458f1ab21d4bb66d1, type: 3}
