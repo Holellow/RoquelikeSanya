@@ -28,7 +28,7 @@ public class JumpScript : MonoBehaviour
     private void Jump()                             
     {                                                 
         _jumpedOnce = true;
-        _rigidbody2D.velocity = Vector2.up * jumpHeight;
+        _rigidbody2D.AddForce( new Vector2(0,jumpHeight)) ;
     }
 
     private void Update()
@@ -38,7 +38,7 @@ public class JumpScript : MonoBehaviour
             _startJump = false;
         }
         
-        if (isGrounded.isGrounded && jumps == 0 && _jumpedOnce && !_startJump)
+        if (isGrounded.isGrounded && jumps == 0 && _jumpedOnce && !_startJump || isGrounded.isGrounded && jumps == 1 && _jumpedOnce && !_startJump)
         {
             _jumpedOnce = false;
             jumps = realJumps;

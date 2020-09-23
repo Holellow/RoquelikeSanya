@@ -8,16 +8,20 @@ public abstract class PlayerUnit : MonoBehaviour
     [SerializeField] protected Vector3 v3Direction;
     
     [SerializeField] protected float speed = 3.0f;
+   
     [SerializeField] protected float direction = 1;
     
     [SerializeField] protected bool isFacingRight = true;
     
-    public bool isActive { set; get; }
-        
     [SerializeField] protected Rigidbody2D _rigidbody;
     
     [SerializeField] protected bool _jumpedOnce;
+    
+    public bool isActive { set; get; }
 
+    protected Vector2 force;
+    
+    protected float xforce;
     private protected void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -25,6 +29,7 @@ public abstract class PlayerUnit : MonoBehaviour
     
     void Update()
     {
+        CheckVelocity();
         if (isActive)
         {
             CheckInput();
@@ -36,6 +41,18 @@ public abstract class PlayerUnit : MonoBehaviour
     {
         
     }
+
+     protected void CheckVelocity()
+     {
+         if (_rigidbody.velocity.x > 7 )
+         {
+             _rigidbody.velocity = new Vector2(7,_rigidbody.velocity.y);
+         }
+         if (_rigidbody.velocity.x < -7 )
+         {
+             _rigidbody.velocity = new Vector2(-7,_rigidbody.velocity.y);
+         }
+     }
      
     private void CheckMovementDirection()
     {
@@ -62,10 +79,13 @@ public abstract class PlayerUnit : MonoBehaviour
         var localPosition = transform1.localPosition;
         
         v3Direction.x = direction;
+        xforce = (speed * Time.deltaTime * direction);
+        force = new Vector2(xforce,0);
         
-        transform.localPosition = Vector2.MoveTowards(localPosition, 
+        _rigidbody.AddForce(force);
+        /*transform.localPosition = Vector2.MoveTowards(localPosition, 
             localPosition + v3Direction,
-            Time.deltaTime * speed);
+            Time.deltaTime * speed);*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
