@@ -1,17 +1,16 @@
-﻿using Player;
-using UnityEngine;
+﻿using UnityEngine;
 
-
-public class SecondPlayerController : PlayerUnit
+namespace Player
 {
-   
-     protected override void CheckInput()
+    public class SecondPlayerController : PlayerUnit
     {
-        direction = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButton("Horizontal")) 
+        protected override void CheckInput()
         {
-            Run();
+            direction = Input.GetAxisRaw("Horizontal");
+            if (Input.GetButton("Horizontal")) 
+            {
+                Run();
+            }
         }
     }
-
 }

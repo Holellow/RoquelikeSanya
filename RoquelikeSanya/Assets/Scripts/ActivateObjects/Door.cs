@@ -15,13 +15,13 @@ namespace ActivateObjects
 
         public void Active()
         {
-            GetComponent<EdgeCollider2D>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
             _animator.SetBool(IsOpen,true);
         }
 
         public void Disactivate()
         { 
-            GetComponent<EdgeCollider2D>().enabled = true;
+            GetComponent<Collider2D>().enabled = true;
             _animator.SetBool(IsOpen,false);
         }
     }

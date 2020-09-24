@@ -4,7 +4,8 @@ namespace Player
 {
     public class IsGrounded : MonoBehaviour
     {
-        [SerializeField] protected float groundRememberer;       
+       // [SerializeField] protected float groundRememberer;   
+       
         [SerializeField] protected float groundRemembererTime;   
         [SerializeField] protected LayerMask whatIsGround;   
                                                      
@@ -21,14 +22,14 @@ namespace Player
         private void Grounded()                                                                                  
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius,whatIsGround);
-            if (isGrounded)                                                                                      
+            /*if (isGrounded)                                                                                      
             {                                                                                                    
                 groundRememberer = groundRemembererTime;                                                         
             }                                                                                                    
             else                                                                                                 
             {                                                                                                    
                 groundRememberer -= Time.deltaTime;                                                              
-            }
+            }*/
         }                                                                                                        
     }
 }

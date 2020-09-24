@@ -1,46 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Player;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-public class Box : MonoBehaviour
+namespace ActivateObjects
 {
-   [SerializeField] private Rigidbody2D _rigidbody2D;
-   [SerializeField] private Collider2D _collider2D;
-   [SerializeField] private Collision2D _collision2D;
-   
-   private void OnCollisionEnter2D(Collision2D other)
+   public class Box : MonoBehaviour
    {
-      if (other.contactCount == 1 || other.contactCount == 0)
+      [SerializeField] private Rigidbody2D _rigidbody2D;
+   
+      private void OnCollisionEnter2D(Collision2D other)
       {
-         _rigidbody2D.constraints = RigidbodyConstraints2D.None;
+         SecondPlayerController secondPlayerController = other.gameObject.GetComponent<SecondPlayerController>();
+         _rigidbody2D.constraints = other.contactCount == 0 || other.contactCount == 1 || secondPlayerController != null ? RigidbodyConstraints2D.None : RigidbodyConstraints2D.FreezeAll;
       }
-      else
+
+      private void OnCollisionExit(Collision other)
       {
-         if (other.gameObject.name != "BigPlayer")
-         {
-            Debug.Log("sasa");
-            _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
-         }
-         else
+         if (other.contactCount == 1 || other.contactCount == 0)
          {
             _rigidbody2D.constraints = RigidbodyConstraints2D.None;
          }
       }
-   }
-
-   
-   /*private void OnCollisionExit2D(Collision2D other)
-   {
-      if (other.gameObject.name == "BigPlayer")
-      {
-         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
-      }
-   }*/
-   
-   private void Update()
-   {
-      
    }
 }

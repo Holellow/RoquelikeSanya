@@ -11,12 +11,12 @@ public class PlayerSwitcher : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.J))
         {
 
-            SecondPlayer.isActive = !SecondPlayer.isActive;
+            SecondPlayer.IsActive = !SecondPlayer.IsActive;
             SecondPlayer.GetComponent<JumpScript>().enabled = !SecondPlayer.GetComponent<JumpScript>().enabled;
             
             
             FirstPlayer.GetComponent<JumpScript>().enabled = !FirstPlayer.GetComponent<JumpScript>().enabled;
-            FirstPlayer.isActive = !FirstPlayer.isActive;
+            FirstPlayer.IsActive = !FirstPlayer.IsActive;
         }
     }
 }

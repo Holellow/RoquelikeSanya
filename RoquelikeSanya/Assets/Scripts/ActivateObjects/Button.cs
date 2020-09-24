@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace ActivateObjects
 {
     public class Button : MonoBehaviour
     {
-        [SerializeField] private bool isPressed;
+        [SerializeField] private bool _isPressed;
         
-        [SerializeField] private UnityEvent activeEvent;
-        [SerializeField] private UnityEvent disactivateEvent;
+        [SerializeField] private UnityEvent _activeEvent;
+        [SerializeField] private UnityEvent _disactivateEvent;
         
         private Animator _animator;
     
@@ -19,35 +19,34 @@ namespace ActivateObjects
         {
             _animator = GetComponent<Animator>();
         }
-
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player") && !isPressed || other.CompareTag("Box") && !isPressed)
-            {
-                isPressed = true;
-                _animator.SetBool(IsPressed, true);
-                Active();
-            }
-        }
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Player") && isPressed || other.CompareTag("Box") && isPressed)
-            {
-                isPressed = false;
-                _animator.SetBool(IsPressed, false);
-                
-                disactivateEvent.Invoke();
-            }
+            if ((other.gameObject.GetComponent<PlayerUnit>() == null || _isPressed) &&
+                (other.gameObject.GetComponent<Box>() == null || _isPressed)) return;
+            _isPressed = true;
+            _animator.SetBool(IsPressed, true);
+            Active();
         }
         
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if ((other.gameObject.GetComponent<PlayerUnit>() != null || !_isPressed) &&
+                (other.gameObject.GetComponent<Box>() != null || !_isPressed)) return;
+            _isPressed = false;
+            _animator.SetBool(IsPressed, false);
+                
+            _disactivateEvent.Invoke();
+        }
+
         private void Active()
         {
-            activeEvent.Invoke();
+            _activeEvent.Invoke();
         }
 
         private void Disactivate()
         {
-            disactivateEvent.Invoke();
+            _disactivateEvent.Invoke();
         }
     }
 }
