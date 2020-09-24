@@ -12,6 +12,7 @@ public class FirstPlayerController : PlayerUnit
     {
         direction = Input.GetAxisRaw("Horizontal");
 
+        
         if (Input.GetButton("Horizontal"))
         {
             Run();

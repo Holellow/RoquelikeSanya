@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.Events;
+using Debug = UnityEngine.Debug;
 
 namespace Player
 {
@@ -12,8 +15,8 @@ namespace Player
     
         [SerializeField] protected bool isFacingRight = true;
 
-        [SerializeField] private float maxVelocity;
-        
+        [SerializeField] private float _maxVelocity;
+
         private Vector2 _force;
         
         private float _velocity;
@@ -27,15 +30,15 @@ namespace Player
 
         public float MaxVelocity
         {
-            get => maxVelocity;
-            set => maxVelocity = value;
+            get => _maxVelocity;
+            set => _maxVelocity = value;
         }
         
         public bool IsActive { set; get; }
         
         private protected void Awake()
         {
-            _velocity = maxVelocity;
+            _velocity = _maxVelocity;
             _rigidbody = GetComponent<Rigidbody2D>();
         }
         
@@ -54,7 +57,8 @@ namespace Player
         {
         
         }
-
+        
+      
         protected void CheckVelocity()
         {
             if (_rigidbody.velocity.x > _velocity)

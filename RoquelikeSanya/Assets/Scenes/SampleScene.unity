@@ -573,7 +573,7 @@ MonoBehaviour:
   speed: 900
   direction: 1
   isFacingRight: 1
-  maxVelocity: 7
+  _maxVelocity: 7
 --- !u!212 &557576580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1605,7 +1605,7 @@ MonoBehaviour:
   speed: 500
   direction: 1
   isFacingRight: 1
-  maxVelocity: 7
+  _maxVelocity: 3
 --- !u!212 &1995864238
 SpriteRenderer:
   m_ObjectHideFlags: 0
